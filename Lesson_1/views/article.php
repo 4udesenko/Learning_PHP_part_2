@@ -8,9 +8,12 @@
 <h1>Новость</h1>
 <article>
     <h3>
-        <?php echo $article['tittle']; ?>
+        <?php echo $article['title']; ?>
     </h3>
+
     <div><?php echo $article['text']; ?></div>
 </article>
+</br>
+<div><a href="/Lesson_1/">Назад</a></div>
 </body>
 </html>
