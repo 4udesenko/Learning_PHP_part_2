@@ -9,7 +9,7 @@
 <?php foreach ($news as $article) : ?>
 <article>
     <h3>
-        <a href="/article.php?id=<?php echo $article['id']; ?>">
+        <a href="/Lesson_1/article.phpticle.php?id=<?php echo $article['id']; ?>">
             <?php echo $article['tittle']; ?>
         </a>
     </h3>
