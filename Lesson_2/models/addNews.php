@@ -14,3 +14,4 @@ $addArt = new AddArticle($title, $text);
 
 echo '<h3>Новость добавлена!</h3>';
 echo '<a href="/Lesson_2/index.php">На главную</a>';
+
