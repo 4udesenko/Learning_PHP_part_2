@@ -28,4 +28,9 @@ class Db
         return $this->findAll($sql)[0];
     }
 
+    public function addOne($sql)
+    {
+        $res = mysql_query($sql);
+        return $res;
+    }
 }

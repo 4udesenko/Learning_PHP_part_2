@@ -16,7 +16,7 @@ abstract class Article
 
     public function findAll()
     {
-        return $this->db->findAll('SELECT * FROM ' . $this->getTable());
+        return $this->db->findAll('SELECT * FROM ' . $this->getTable() . ' ORDER BY date DESC');
     }
 
     public function findOne($id)
