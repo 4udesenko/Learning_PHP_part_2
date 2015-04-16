@@ -6,6 +6,10 @@ require __DIR__ . '/../models/NewsArticle.php';
 class NewsController
     extends AbstractController
 {
+    public  function __construct()
+    {
+        parent::__construct();
+    }
 
     protected function getTemplatePath()
     {
@@ -14,15 +18,14 @@ class NewsController
 
     public function actionAll()
     {
-        $newsModel = new NewsArticle();
-        $items = $newsModel->findAll();
+        $items = $this->newsModel->findAll();
         $this->render('all', ['items' => $items]);
     }
 
-    public function actionOne($id)
+    public function actionOne()
     {
-        $newsModel = new NewsArticle();
-        $item = $newsModel->findOne($id);
+        $id = $_GET['id'];
+        $item = $this->newsModel->findOne($id);
         $this->render('one', ['item' => $item]);
     }
 
