@@ -7,7 +7,7 @@
 <body>
 <h1>Форма добавления новости</h1>
 
-<form action="/Lesson_3/admin/AddArticle" method="post">
+<form action="/Lesson_3/admin/add" method="post">
     <p><input type="text" name="title" placeholder="Заголовок новости" size="25"/></p>
 
     <p><textarea name="text" cols="48" rows="8" placeholder="Текст новости"></textarea></p>

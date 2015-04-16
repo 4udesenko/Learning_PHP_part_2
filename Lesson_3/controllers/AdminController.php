@@ -23,7 +23,7 @@ class AdminController
         require $this->getTemplatePath() . 'add.php';
     }
 
-    public function actionAddArticle()
+    public function actionAdd()
     {
         $title = $_POST['title'];
         $text = $_POST['text'];
