@@ -14,6 +14,6 @@
         <div><?php echo $item->text; ?></div>
     </article>
 </br>
-<div><a href="/Lesson_2/">Назад</a></div>
+<div><a href="/Lesson_3/">Назад</a></div>
 </body>
 </html>

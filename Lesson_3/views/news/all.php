@@ -7,13 +7,13 @@
 <body>
 <h1>Новости</h1>
 
-<div><a href="/Lesson_2/form.php">
+<div><a href="/Lesson_3/form.php">
         <button>Добавить новость</button>
     </a></div>
 <?php foreach ($items as $item): ?>
     <article>
         <h3>
-            <a href="/Lesson_2/article.php?id=<?php echo $item->id; ?>">
+            <a href="/Lesson_3/article.php?id=<?php echo $item->id; ?>">
                 <?php echo $item->title; ?>
             </a>
         </h3>
