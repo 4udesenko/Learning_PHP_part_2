@@ -1,9 +1,10 @@
 <?php
 
-$ctrl = !empty($_GET['ctrl']) ? $_GET['ctrl'] : 'news';
-$ctrlClassName = ucfirst($ctrl) . 'Controller';
+require __DIR__ . '/models/news.php';
+require __DIR__ . '/config.php';
+require_once __DIR__ . '/classes/db.php';
 
-require __DIR__ . '/controllers/' . $ctrlClassName . '.php';
+$db = new DataBase(HOST, DB, USER, PASS);
+$article = News::GetNewsById($_GET['id']);
 
-$controller = new $ctrlClassName;
-$controller->actionOne($_GET['id']);
+include __DIR__ . '/views/article.php';
