@@ -28,6 +28,7 @@ class Db
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
+        return true;
     }
 
     public function getQueryId($sql, $params = [])
