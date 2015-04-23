@@ -14,7 +14,7 @@ abstract class Model
     public static function findAll()
     {
         $class = static::class;
-        $sql = 'SELECT * FROM ' . static::getTable();
+        $sql = 'SELECT * FROM ' . static::getTable() . ' ORDER BY date DESC';
         $db = new Db();
         return $db->findAll($class, $sql);
     }
@@ -27,32 +27,24 @@ abstract class Model
         return $db->findOne($class, $sql, [':id' => $id]);
     }
 
-    public static function addOne($title, $text)
-    {
-        $class = static::class;
-        $sql = 'INSERT INTO ' . static::getTable() . ' (title, text, date) VALUES (title:title, text:text, NOW())';
-        $db = new Db();
-        return $db->addOne($class, $sql, [':title' => $title, ':text' => $text]);
-    }
-
     public function insert()
     {
-        $sql = "INSERT INTO " . static::getTable() . " " . $this->where . " VALUES " . $this->whence;
+        $sql = 'INSERT INTO ' . static::getTable() . ' ' . $this->where . ' VALUES ' . $this->whence;
         $db = new Db();
         return $db->getQueryId($sql, $this->data);
     }
 
     public function update()
     {
-        $sql = "UPDATE " . static::getTable() . " SET " . $this->where . " WHERE " . $this->whence;
+        $sql = 'UPDATE ' . static::getTable() . ' SET ' . $this->where . ' WHERE ' . $this->whence;
         $db = new Db();
-        return $db->getQuery($sql, $this->data);
+        return $db->prepareQuery($sql, $this->data);
     }
 
     public function delete()
     {
-        $sql = "DELETE FROM " . static::getTable() . " WHERE " . $this->whence;
+        $sql = 'DELETE FROM ' . static::getTable() . ' WHERE ' . $this->where;
         $db = new Db();
-        return $db->getQuery($sql, $this->data);
+        return $db->prepareQuery($sql, $this->data);
     }
 }

@@ -7,7 +7,7 @@
 <body>
 <h1>Новости</h1>
 
-<div><a href="/Lesson_5/admin/add">
+<div><a href="/Lesson_5/admin/form">
         <button>Добавить новость</button>
     </a></div>
 <?php foreach ($items as $item): ?>

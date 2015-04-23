@@ -35,12 +35,4 @@ class Db
         $this->prepareQuery($sql, $params);
         return $this->dbh->lastInsertId();
     }
-
-    public function addOne($class, $sql, $params = [])
-    {
-        $sth = $this->dbh->prepare($sql);
-        $sth->execute($params);
-        $res = $sth->fetchAll(PDO::FETCH_CLASS, $class);
-        return $res;
-    }
 }
