@@ -34,4 +34,25 @@ abstract class Model
         $db = new Db();
         return $db->addOne($class, $sql, [':title' => $title, ':text' => $text]);
     }
+
+    public function insert()
+    {
+        $sql = "INSERT INTO " . static::getTable() . " " . $this->where . " VALUES " . $this->whence;
+        $db = new Db();
+        return $db->getQueryId($sql, $this->data);
+    }
+
+    public function update()
+    {
+        $sql = "UPDATE " . static::getTable() . " SET " . $this->where . " WHERE " . $this->whence;
+        $db = new Db();
+        return $db->getQuery($sql, $this->data);
+    }
+
+    public function delete()
+    {
+        $sql = "DELETE FROM " . static::getTable() . " WHERE " . $this->whence;
+        $db = new Db();
+        return $db->getQuery($sql, $this->data);
+    }
 }

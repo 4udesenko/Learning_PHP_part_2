@@ -24,6 +24,18 @@ class Db
         return $this->findAll($class, $sql, $params)[0];
     }
 
+    public function prepareQuery($sql, $params = [])
+    {
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute($params);
+    }
+
+    public function getQueryId($sql, $params = [])
+    {
+        $this->prepareQuery($sql, $params);
+        return $this->dbh->lastInsertId();
+    }
+
     public function addOne($class, $sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
