@@ -11,7 +11,7 @@ session_start()
 <body>
 <h1>Регистрация</h1>
 
-<form method="post" action="/lesson_6/users/addUser">
+<form method="post" action="/lesson_7/users/addUser">
     <p>Логин: <br><input type="text" name="login"></p>
 
     <p>Пароль: <br><input type="password" name="password"></p>

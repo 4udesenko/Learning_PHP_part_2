@@ -2,7 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Classes\Mail;
+use App\Classes\View;
 use App\Models\News;
+use App\Classes\E403Exception;
 
 class Admin
 {
@@ -40,7 +43,12 @@ class Admin
             $article->text = $text;
             $article->id = $article->insert();
         }
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/");
+        $send = new Mail();
+        if ($send->send()) {
+            header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/");
+        } else {
+            throw new \Exception("Ошибка при отправлении письма о добавлении новости!");
+        }
     }
 
     public function actionUpdate()
@@ -49,7 +57,7 @@ class Admin
         $article->title = $_POST['title'];
         $article->text = $_POST['text'];
         $article->update();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/");
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/");
     }
 
     public function actionDelete()
@@ -57,6 +65,6 @@ class Admin
         $article = News::findOne($_GET['id']);
         $article->id = $_GET['id'];
         $article->delete();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/");
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/");
     }
 }

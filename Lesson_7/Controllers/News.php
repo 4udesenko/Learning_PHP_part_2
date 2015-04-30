@@ -26,6 +26,7 @@ class News
         $id = $_GET['id'];
         $this->view->item = Model::findOne($id);
         echo $this->view->render('one');
+
     }
 
 }

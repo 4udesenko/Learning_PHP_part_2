@@ -13,7 +13,7 @@
 <p>Вы зашли на сайт как <?php echo $_SESSION['user']['login'] ? $_SESSION['user']['login'] : 'гость'; ?></p>
 
 <?php if (empty($_SESSION['user']['login'])) { ?>
-    <div><a href="/index.php?ctrl=News&act=All">Авторизация</a></div>
+    <div><a href="/lesson_7/users/showAuthForm">Авторизация</a></div>
     <div><a href="/lesson_7/users/showRegForm">Регистрация</a></div>
 <?php } ?>
 
@@ -23,7 +23,7 @@
 
 </br>
 
-<div><a href="/Lesson_7/form">
+<div><a href="/Lesson_7/admin/form">
         <?php if (!empty($_SESSION['user']['login'])) { ?>
             <button>Добавить новость</button>
         <?php } ?>
@@ -34,7 +34,8 @@
 
     <article>
         <h1>
-            <a href="/index.php?ctrl=News&act=one&id=<?= $item->id ?>">
+            <a href="/Lesson_7/news/one/<?php echo $item->id; ?>">
+
                 <?php echo $item->title; ?>
             </a>
         </h1>

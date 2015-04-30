@@ -7,7 +7,7 @@
 <body>
 <h1>Авторизация</h1>
 
-<form method="post" action="/lesson_6/users/isUser">
+<form method="post" action="/lesson_7/users/isUser">
     <p>Логин: <br><input type="text" name="login" value=""></p>
 
     <p>Пароль: <br><input type="password" name="password" value=""></p>

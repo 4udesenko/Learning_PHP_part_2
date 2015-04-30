@@ -25,7 +25,12 @@ abstract class Model
         $class = static::class;
         $sql = 'SELECT * FROM ' . static::getTable() . ' WHERE id=:id';
         $db = new Db();
-        return $db->findOne($class, $sql, [':id' => $id]);
+        $res = $db->findOne($class, $sql, [':id' => $id]);
+        if (false != $res) {
+            return $res;
+        } else {
+            throw new E404Exception('Ошибка 404. Страница не найдена.');
+        }
     }
 
     public static function findUser($login, $password)

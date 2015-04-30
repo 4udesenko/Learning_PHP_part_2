@@ -1,6 +1,5 @@
 <?php
 session_start();
-var_dump($_GET);
 
 require __DIR__ . '/autoload.php';
 
@@ -15,6 +14,8 @@ if (isset($_GET['logout']) && $_GET['logout'] == true) {
 try {
     $controller = new $ctrlClassName;
     $controller->$method();
-} catch (E404Exception $e) {
+} catch (\App\Classes\E404Exception $e) {
+    echo $e->getMessage();
+} catch (\App\Classes\E403Exception $e) {
     echo $e->getMessage();
 }

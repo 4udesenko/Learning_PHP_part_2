@@ -1,6 +1,8 @@
 <?php
 
-function __autoload($class)
+require __DIR__ . '/vendor/autoload.php';
+
+spl_autoload_register(function ($class)
 {
     if (false !== strpos($class, '\\')) {
         $classNameParts = explode('\\', $class);
@@ -14,4 +16,4 @@ function __autoload($class)
         }
     }
     return false;
-}
+});
